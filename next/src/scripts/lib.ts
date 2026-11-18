@@ -1,11 +1,3 @@
-import type Lenis from "lenis";
-
-declare global {
-  interface Window {
-    __lenis?: Lenis;
-  }
-}
-
 export const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 export const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
@@ -29,11 +21,9 @@ export function whenNear(el: Element, fn: () => void, screens = 2) {
   io.observe(el);
 }
 
-/** Smooth scroll to an absolute page offset (lenis-aware). */
+/** Smooth scroll to an absolute page offset using native browser scrolling. */
 export function scrollToY(y: number) {
-  const l = window.__lenis;
-  if (l) l.scrollTo(y);
-  else window.scrollTo({ top: y, behavior: reducedMotion() ? "auto" : "smooth" });
+  window.scrollTo({ top: y, behavior: reducedMotion() ? "auto" : "smooth" });
 }
 
 /** rAF-throttled scroll + resize listener. Runs once immediately. */

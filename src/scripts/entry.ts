@@ -4,20 +4,8 @@
  * current page does nothing. The Astro build loads this file from
  * layouts/Base.astro, the Next build from src/app/Scripts.tsx.
  *
- * Order matches the order the components appear in the page (it used to be
- * one <script> per component), with smooth scrolling last.
+ * Modules are loaded once here; scroll smoothing is handled by native CSS.
  */
 import "./fx/topbar";
-import "./fx/scroll-ring";
-import "./fx/hero";
 import "./reveal";
-import "./fx/about";
-import "./fx/awards";
-import "./fx/principles";
-import "./fx/ticker";
-import "./fx/services";
-import "./fx/gallery";
-import "./fx/faq";
 import "./fx/contact";
-import "./fx/footer";
-import "./smooth-scroll";

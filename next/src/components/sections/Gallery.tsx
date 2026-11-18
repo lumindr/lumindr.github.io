@@ -12,7 +12,6 @@ export default function Gallery() {
             <div className="og-layer" data-layer=""></div>
             <div className="og-glow" aria-hidden="true" data-glow=""></div>
           </div>
-          <h2 className="h2 balance gallery-heading">{gallery.heading}<span className="muted">{gallery.headingMuted}</span></h2>
         </div>
       </section>
     </>

@@ -1,8 +1,6 @@
 // GENERATED from src/components/sections/Contact.astro by tools/astro-to-next.mjs. Edit the Astro file, then regenerate.
-import { sx } from '@/lib/sx';
 import { site } from '@/lib/site';
 import ScrollWords from '@/components/ScrollWords';
-import Icon from '@/components/Icon';
 
 export default function Contact() {
   const { contact } = site;
@@ -13,23 +11,18 @@ export default function Contact() {
         <div className="contact-main">
           <div className="contact-left">
             <ScrollWords as="h2" className="h2 balance" text={contact.heading} />
-            <div className="contact-card">
-              <div className="contact-avatar"><img src="/assets/avatar.webp" alt={site.name} loading="lazy" /></div>
-              <a className="body" href={site.phone.href}>{site.phone.label}</a>
-            </div>
           </div>
           <div className="contact-right">
-            <p className="body-sb" style={sx("color: var(--grey)")}>{contact.label}</p>
+            <p className="body-sb" style={{ color: 'var(--grey)' }}>{contact.label}</p>
             <p className="body balance">{contact.text}</p>
-            <form className="form" data-contact-form="">
-              <input className="input" type="text" name="name" placeholder="Name" autoComplete="name" />
-              <input className="input" type="email" name="email" placeholder="Email" autoComplete="email" required />
-              <textarea className="input" name="message" placeholder="Message" rows={4}></textarea>
-              <button type="submit" className="submit is-disabled">
-                <span className="body-sb" data-label="">Send Message</span>
-                <span className="submit-icon"><Icon name="arrow-up-right" size={20} stroke={2} /></span>
-              </button>
-            </form>
+          </div>
+          <div className="contact-email-card">
+            <span className="contact-email-label"><span className="contact-mail-icon" aria-hidden="true">✉</span> EMAIL</span>
+            <button className="contact-copy-icon" type="button" data-copy-email={site.email} aria-label="이메일 복사">
+              <svg className="copy-state-icon" data-copy-icon="" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="10" y="4" width="18" height="21" rx="3" stroke="currentColor" strokeWidth="2.4"/><rect x="4" y="10" width="18" height="19" rx="3" stroke="currentColor" strokeWidth="2.4"/></svg>
+              <svg className="copy-state-icon is-hidden" data-copied-icon="" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="m6 16 7 7L27 8" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </button>
+            <strong className="contact-email-address">{site.email}</strong>
           </div>
         </div>
       </section>

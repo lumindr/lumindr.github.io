@@ -1,6 +1,6 @@
 // GENERATED from src/components/sections/Hero.astro by tools/astro-to-next.mjs. Edit the Astro file, then regenerate.
 import { sx } from '@/lib/sx';
-import { getProjects, site } from '@/lib/site';
+import { getProjects } from '@/lib/site';
 import Icon from '@/components/Icon';
 
 export default async function Hero() {
@@ -17,6 +17,8 @@ export default async function Hero() {
   return (
     <>
       <section id="hero" className="hero container">
+        {n === 0 ? null : (
+        <>
         <div className="hero-stage">
           <div style={sx("width: 100%; position: relative; display: flex; flex-direction: column; align-items: center")}>
             <div className="pc-root" style={sx(`--n: ${n}`)} data-carousel="" data-slides={JSON.stringify(slides.map((s) => s.src))}>
@@ -64,9 +66,8 @@ export default async function Hero() {
             </div>
           </div>
         </div>
-        <div className="hero-bottom">
-          <h1 className="body balance hero-heading">{site.tagline}</h1>
-        </div>
+        </>
+        )}
       </section>
     </>
   );

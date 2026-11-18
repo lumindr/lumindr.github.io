@@ -1,7 +1,5 @@
 // GENERATED from src/components/sections/About.astro by tools/astro-to-next.mjs. Edit the Astro file, then regenerate.
-import { sx } from '@/lib/sx';
 import { site } from '@/lib/site';
-import ScrollWords from '@/components/ScrollWords';
 import ScrollFade from '@/components/ScrollFade';
 
 export default function About() {
@@ -11,30 +9,32 @@ export default function About() {
     <>
       <section id="about-alt" className="about">
         <div className="about-stage">
-          <div className="about-parallax" data-parallax="">
-            <div className="about-media">
-              <img src="/assets/portrait.webp" alt={`${site.name}, ${site.role.toLowerCase()}`} loading="lazy" />
-            </div>
-          </div>
-          <div className="about-scrim" aria-hidden="true"></div>
           <div className="about-content">
-            <div className="about-statement-row container">
-              <div className="about-statement">
-                <ScrollWords as="h2" className="h2 balance" style="text-align: end" text={about.statement} />
-              </div>
-            </div>
             <div className="about-bio-row container">
+              <div className="about-bio-meta">
+                <p className="body muted">About</p>
+              </div>
               <div className="about-bio-col">
-                <p className="body muted">ABOUT</p>
                 <ScrollFade>
-                  <div className="about-paragraphs">
-                    <p className="body balance">{about.bio}</p>
-                    <p className="body balance">
-                      {about.contactLead} <a href={`mailto:${site.email}`} style={sx("color: var(--white)")}>{site.email}</a> {about.contactTail}
-                    </p>
+                  <div className="about-profile">
+                    <h2 className="h2 balance about-headline">게임을 즐기며 실력을 키워<br /><span>프로게이머를 꿈꿉니다.</span></h2>
+                    <p className="body balance">{about.description}</p>
+                    <dl className="about-facts">
+                      {about.facts.map((fact) => (
+                        <div key={fact.label} className="about-fact">
+                          <dt className="caption muted">{fact.label}</dt>
+                          <dd className="body">{fact.value}</dd>
+                        </div>
+                      ))}
+                      {site.tmi.map((item) => (
+                        <div key={item.label} className="about-fact">
+                          <dt className="caption muted">{item.label}</dt>
+                          <dd className="body">{item.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
                   </div>
                 </ScrollFade>
-                <p className="body muted">{site.name.toUpperCase()} — {site.year}</p>
               </div>
             </div>
           </div>

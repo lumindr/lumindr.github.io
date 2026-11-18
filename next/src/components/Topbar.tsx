@@ -16,8 +16,7 @@ export default function Topbar({ path }: Props) {
       <header className="topbar" data-topbar="">
         <div className="topbar-bar container">
           <div className="topbar-logo">
-            <a href="/" className="body" style={sx("color: var(--white)")}>{site.name}</a>
-            <p className="body muted">{site.role}</p>
+            <a href="/" className="body" style={sx("color: var(--white)")}>lumindr</a>
           </div>
           <nav className="topbar-links" aria-label="Primary">
             {site.nav.map((l) => <a className={cx(["body-sb", { "is-current": isCurrent(l.href) }])} href={l.href} aria-current={isCurrent(l.href) ? "page" : undefined}>{l.label}</a>)}

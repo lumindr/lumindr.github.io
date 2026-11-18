@@ -1,5 +1,5 @@
 ---
-import { getProjects, site } from "../../lib/site";
+import { getProjects } from "../../lib/site";
 import Icon from "../Icon.astro";
 
 // Slides come from the projects collection (heroImage / title / category).
@@ -14,6 +14,8 @@ const slides = projects.map((p) => ({
 const n = slides.length;
 ---
 <section id="hero" class="hero container">
+  {n === 0 ? null : (
+  <>
   <div class="hero-stage">
     <div style="width: 100%; position: relative; display: flex; flex-direction: column; align-items: center">
       <div class="pc-root" style={`--n: ${n}`} data-carousel data-slides={JSON.stringify(slides.map((s) => s.src))}>
@@ -61,7 +63,6 @@ const n = slides.length;
       </div>
     </div>
   </div>
-  <div class="hero-bottom">
-    <h1 class="body balance hero-heading">{site.tagline}</h1>
-  </div>
+  </>
+  )}
 </section>

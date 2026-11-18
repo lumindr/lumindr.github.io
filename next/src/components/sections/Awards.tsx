@@ -5,29 +5,15 @@ import ScrollWords from '@/components/ScrollWords';
 export default function Awards() {
   return (
     <>
-      <section className="awards container" data-awards="">
-        <div className="awards-card">
-          <ScrollWords as="h2" className="h2 balance" text="Awards" />
-          <div className="awards-rows">
-            {site.awards.map((r, i) => (
-              <>
-                {i > 0 && <div className="divider" aria-hidden="true"></div>}
-                <div className="award-row" data-row={i}>
-                  <p className="body award-year">{r.year}</p>
-                  <div className="award-right">
-                    <h4 className="h4 balance">{r.project}</h4>
-                    <p className="body muted">{r.award}</p>
-                  </div>
-                  <div className="award-preview"><img src={r.cover} alt={r.alt} loading="lazy" /></div>
-                </div>
-              </>
-            ))}
-          </div>
-        </div>
-        <div className="award-cursor" aria-hidden="true" data-cursor="">
-          <div className="award-cursor-inner">
-            {site.awards.map((r) => <img src={r.cover} alt="" loading="lazy" />)}
-          </div>
+      <section className="tmi container">
+        <ScrollWords as="h2" className="h2 balance tmi-heading" text="나에 대한 TMI" />
+        <div className="tmi-grid">
+          {site.tmi.map((item) => (
+            <article key={item.label} className="tmi-card">
+              <p className="body muted">{item.label}</p>
+              <h3 className="h4 balance">{item.value}</h3>
+            </article>
+          ))}
         </div>
       </section>
     </>
